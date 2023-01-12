@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 630px;
+    margin: auto;
+    cursor: url("hand-pointer-regular.svg"), pointer;
+}
+section{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: arial;
+    line-height: 25px;
+    margin: 30px;
+}
+section img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: top;
+    
+}
+
+section p{
+    max-width: 450px;
+    background: lightgray;
+    padding: 20px;
+    border-radius: 20px 20px 20px 0;
+    position: relative;
+}
+
+section p::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -32px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 20px solid transparent;
+    border-right-color: lightgray;
+}
+section:nth-of-type(even){
+    flex-direction: row-reverse;
+}
+
+section:nth-of-type(even) img{
+    object-position: center;
+}
+section:nth-of-type(even) p{
+    background: #3bc06f;
+    color: white;
+    border-radius: 20px 20px 0 20px;
+}
+section:nth-of-type(even) p::before{
+    border: 20px solid transparent;
+    border-left-color: #3bc06f;
+    left: 98%;
+}
+
+@media(max-width: 630px){
+    section p{
+        width: 70%;
+    }
+}
+/* interactions*/ 
+section{
+    
+    transition: transform 0.3s;
+    cursor: url("hand-pointer-regular1.svg"), auto;
+}
+section:hover{
+    transform: translateX(-20px);
+}
